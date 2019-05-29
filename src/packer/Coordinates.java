@@ -1,3 +1,4 @@
+
 package packer;
 
 /**
@@ -35,7 +36,7 @@ public class Coordinates {
         double dist = Math.abs(xDiff) + Math.abs(yDiff);
         return dist;
     }
-    
+    // The return was missing +1 making the test return fail on test
     public double companyDistanceTo(Coordinates other) {
         double xDiff1 = other.getX() - this.getX();
         double yDiff1 = other.getY() - this.getY();

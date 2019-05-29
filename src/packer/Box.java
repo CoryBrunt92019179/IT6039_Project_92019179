@@ -48,7 +48,7 @@ public class Box {
     public String toString() {
         return getLabel();
     }
-    
+    // the getWeight was returning the wrong function getWeight and making the test fail
     public double getWeight() {
         return contents.getTotalWeight();
     }

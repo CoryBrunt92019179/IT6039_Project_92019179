@@ -8,7 +8,7 @@ import java.util.List;
  * @author bunta
  */
 public class Packer {
-
+// the list was setup in the wrong order with b = new box (d,c) making the test fail
     public static List<Box> packProducts(Customer c, Depot d, Manifest m) {
         List<Box> packedBoxes = new ArrayList<>();
         Box b = null;
