@@ -22,9 +22,10 @@ public class Customer {
         this.addresses.add(address);
     }
     
-    public String getName() {
+    public  String getName() {
         return name;
     }
+    
 
     public Address getClosestAddressTo(Depot d) {
         double bestDistance = Double.MAX_VALUE;

@@ -27,7 +27,7 @@ public class Manifest {
     
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)*quantity);
+            quantities.put(p,quantities.get(p)+quantity);
         }
         else {
             quantities.put(p,quantity);
@@ -37,14 +37,14 @@ public class Manifest {
         }
     }
     
-    public void removeProduct(Product p) {
+    
+    
+     public void removeProduct(Product p) {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
-            quantities.put(p,quantities.get(p)-1);
+            quantities.put(p, quantities.get(p) - 1);
         }
         if (quantities.get(p) == 0) {
             quantities.remove(p);
-        }
-        if (quantities.containsKey(p)) {
             byWeight.remove(p);
         }
     }
@@ -52,7 +52,7 @@ public class Manifest {
     public double getTotalWeight() {
         double weight = 0;
         for (Product p : quantities.keySet()) {
-            weight = quantities.get(p) * p.getWeight();
+            weight += quantities.get(p) * p.getWeight();
         }
         return weight;
     }
@@ -82,12 +82,34 @@ public class Manifest {
             result.append(quantities.get(p));
             result.append("\n");
         }
+        
+        if (result.length() == 0) {
+            return "";
+        }
         return result.substring(0, result.length()-1);
     }
     
     public boolean hasFragileItems() {
         for (Product p : quantities.keySet()) {
             if (p.isFragile()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean hasHazardousItems() {
+        for (Product p : quantities.keySet()) {
+            if (p.isHazardous()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean hasHeavyItems() {
+        for (Product p : quantities.keySet()) {
+            if (p.isHeavy()) {
                 return true;
             }
         }

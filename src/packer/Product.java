@@ -10,12 +10,14 @@ public class Product {
     private int weight;
     private boolean hazardous;
     private boolean fragile;
+    private boolean heavy;
 
     public Product(String name, int weight, boolean hazardous, boolean fragile) {
         this.name = name;
         this.weight = weight;
         this.hazardous = hazardous;
         this.fragile = fragile;
+        this.heavy = heavy;
     }
 
     /**
@@ -37,6 +39,13 @@ public class Product {
      */
     public boolean isHazardous() {
         return hazardous;
+    }
+    
+    /**
+     * @return the hazardous
+     */
+    public boolean isHeavy() {
+        return heavy;
     }
 
     /**
